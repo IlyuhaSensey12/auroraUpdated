@@ -79,17 +79,17 @@ export default function Registration() {
       await axios.post("http://localhost:8081/api/v1/auth/registerOrg",
 
           {
-          organizationName: orgname,
+            organizationName: orgname,
 
-          activity: activity,
+            activity: activity,
 
-          adress: address,
+            adress: address,
 
-          number: number,
+            number: number,
 
-          email: emailOrg,
+            email: emailOrg,
 
-          password: passwordOrg
+            password: passwordOrg
           });
 
       alert("Organization Registation Successfully");
@@ -114,115 +114,115 @@ export default function Registration() {
   }
 
   return (
-    <div>
-    <div style={{justifyContent: 'center',width:'25%',marginLeft:'37.5%',marginTop:'0%'}}>
-    <h1 className="navbar-brand" style={{ fontSize: '50px', color: '#006BA8', fontFamily:"Playfair Display"}} href='/'><strong>Aurora</strong></h1>
-    <img src={require('/Users/elliasmussayev/Desktop/aurora/src/Icon/Aurora.png')} alt="Моя картинка" style={{width: '80px', height: '55px'}} />
-    <div style={{ backgroundColor: 'rgba(217, 217, 217, 0.18)', border: '1px solid #006BA8', padding: '1px',marginTop:'5%'}}>  
-    <div class="row justify-content-center text-center" style={{marginTop:'5%'}}>
-      <button class="btn btn-primary" onClick={showVolunteerForm} style={{background:'#006BA8', width:'35%',marginRight:'5%', textAlign:'center',fontSize:'150%', fontFamily:'Livvic'}}>Volunteer</button>
-      <button class="btn btn-primary" onClick={showOrganizationForm}  style={{background:'#006BA8', width:'35%',marginLeft:'5%', textAlign:'center',fontSize:'150%', fontFamily:'Livvic'}}>Organization</button>
-    <div class="border-top" style={{border: '1px solid #006BA8',width:'96%',marginTop:'5%'}}></div>
-    </div>     
-    <div id='volunteer-form' style={{display:'yes'}}>
-    <h1 style={{fontFamily:'Livvic',color:'#006BA8'}}>Volunteer</h1>    
-    <input type="text" className="form-control" id="name" placeholder="Name"                style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
-           value={name} onChange={(event) =>
-    {
-    setName(event.target.value);
-    }
-    }
-    />
-    <input type="text" className="form-control" id="surname" placeholder="Surname"          style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
-           value={lastname} onChange={(event) =>
-    {
-    setLastname(event.target.value);
-    }
-    }
-    />
-    <input type="text" className="form-control" id="email" placeholder="Emal"               style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
-           value={email} onChange={(event) =>
-    {
-    setEmail(event.target.value);
-    }
-    }
-    />
-    <input type="text" className="form-control" id="phoneNumber" placeholder="Phone number" style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
-           value={phone} onChange={(event) =>
-    {
-    setPhone(event.target.value);
-    }
-    }
-    />
-    <input type="text" className="form-control" id="city" placeholder="City"                style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
-           value={city} onChange={(event) =>
-    {
-    setCity(event.target.value);
-    }
-    }
-    />
-    <input type="password" className="form-control" id="password" placeholder="Password"    style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
-           value={password} onChange={(event) =>
-    {
-    setPassword(event.target.value);
-    }
-    }
-    />
-    <button className="btn btn-primary rounded-pill" onClick={registration}             style={{background:'#006BA8', width:'65%', textAlign:'center',fontSize:'20px', fontFamily:'Livvic',fontWeight:'bold',marginBottom:'2%',marginTop:'5%'}}>Sign up</button>
-    </div>
-    <div id='organization-form' style={{display:'none'}}>
-    <h1 style={{fontFamily:'Livvic',color:'#006BA8'}}>Organization</h1>    
-    <input type="text" className="form-control" id="nameOrganization" placeholder="Name of organization"   style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}            
-    value={orgname} onChange={(event) =>
-    {
-    setOrgName(event.target.value);
-    }
-    }/>
-    <input type="text" className="form-control" id="address" placeholder="address"                   style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}           
-    value={address} onChange={(event) =>
-    {
-    setAddress(event.target.value);
-    }
-    }/>
-    <input type="text" className="form-control" id="activity" placeholder="Activity"                       style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}            
-    value={activity} onChange={(event) =>
-    {
-    setActivity(event.target.value);
-    }
-    }/>
-    <input type="text" className="form-control" id="email" placeholder="Email"                             style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}            
-    value={emailOrg} onChange={(event) =>
-    {
-    setOrgemail(event.target.value);
-    }
-    }/>
-    <input type="text" className="form-control" id="phoneNumber" placeholder="Phone number"                style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}            
-    value={number} onChange={(event) =>
-    {
-    setNumber(event.target.value);
-    }
-    }/>
-    <input type="password" className="form-control" id="password" placeholder="Password"                   style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}           
-    value={passwordOrg} onChange={(event) =>
-    {
-    setPasswordOrg(event.target.value);
-    }
-    }/>
-    <button className="btn btn-primary rounded-pill" onClick={registrationOrganization} style={{background:'#006BA8', width:'65%', textAlign:'center',fontSize:'20px', fontFamily:'Livvic',fontWeight:'bold',marginBottom:'2%',marginTop:'5%'}}>Sign up</button>
-    </div>
-    <label style={{width:'65%'}}><input type="checkbox" style={{marginLeft:'0%',marginTop:'5%'}}/>By clicking the "Sign up" button, I accept the terms of the Privacy Policy</label>
-    </div>
-    </div>
-    </div>
+      <div>
+        <div style={{justifyContent: 'center',width:'25%',marginLeft:'37.5%',marginTop:'0%'}}>
+          <h1 className="navbar-brand" style={{ fontSize: '50px', color: '#006BA8', fontFamily:"Playfair Display",caretColor:'transparent'}} href='/'><strong>Aurora</strong></h1>
+          <img src={require('/Users/elliasmussayev/Desktop/aurora/src/Icon/Aurora.png')} alt="Моя картинка" style={{width: '80px', height: '55px',caretColor:'transparent'}} />
+          <div style={{ backgroundColor: 'rgba(217, 217, 217, 0.18)', border: '1px solid #006BA8', padding: '1px',marginTop:'5%'}}>
+            <div class="row justify-content-center text-center" style={{marginTop:'5%'}}>
+              <button class="btn btn-primary" onClick={showVolunteerForm} style={{background:'#006BA8', width:'35%',marginRight:'5%', textAlign:'center',fontSize:'150%', fontFamily:'Livvic'}}>Volunteer</button>
+              <button class="btn btn-primary" onClick={showOrganizationForm}  style={{background:'#006BA8', width:'35%',marginLeft:'5%', textAlign:'center',fontSize:'150%', fontFamily:'Livvic'}}>Organization</button>
+              <div class="border-top" style={{border: '1px solid #006BA8',width:'96%',marginTop:'5%'}}></div>
+            </div>
+            <div id='volunteer-form' style={{display:'yes'}}>
+              <h1 style={{fontFamily:'Livvic',color:'#006BA8',caretColor:'transparent'}}>Volunteer</h1>
+              <input type="text" className="form-control" id="name" placeholder="Name"                style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
+                     value={name} onChange={(event) =>
+              {
+                setName(event.target.value);
+              }
+              }
+              />
+              <input type="text" className="form-control" id="surname" placeholder="Surname"          style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
+                     value={lastname} onChange={(event) =>
+              {
+                setLastname(event.target.value);
+              }
+              }
+              />
+              <input type="text" className="form-control" id="email" placeholder="Emal"               style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
+                     value={email} onChange={(event) =>
+              {
+                setEmail(event.target.value);
+              }
+              }
+              />
+              <input type="text" className="form-control" id="phoneNumber" placeholder="Phone number" style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
+                     value={phone} onChange={(event) =>
+              {
+                setPhone(event.target.value);
+              }
+              }
+              />
+              <input type="text" className="form-control" id="city" placeholder="City"                style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
+                     value={city} onChange={(event) =>
+              {
+                setCity(event.target.value);
+              }
+              }
+              />
+              <input type="password" className="form-control" id="password" placeholder="Password"    style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
+                     value={password} onChange={(event) =>
+              {
+                setPassword(event.target.value);
+              }
+              }
+              />
+              <button className="btn btn-primary rounded-pill" onClick={registration}                                style={{background:'#006BA8', width:'65%', textAlign:'center',fontSize:'20px', fontFamily:'Livvic',fontWeight:'bold',marginBottom:'2%',marginTop:'5%'}}>Sign up</button>
+            </div>
+            <div id='organization-form' style={{display:'none'}}>
+              <h1 style={{fontFamily:'Livvic',color:'#006BA8',caretColor:'transparent'}}>Organization</h1>
+              <input type="text" className="form-control" id="nameOrganization" placeholder="Name of organization"   style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
+                     value={orgname} onChange={(event) =>
+              {
+                setOrgName(event.target.value);
+              }
+              }/>
+              <input type="text" className="form-control" id="address" placeholder="address"                         style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
+                     value={address} onChange={(event) =>
+              {
+                setAddress(event.target.value);
+              }
+              }/>
+              <input type="text" className="form-control" id="activity" placeholder="Activity"                       style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
+                     value={activity} onChange={(event) =>
+              {
+                setActivity(event.target.value);
+              }
+              }/>
+              <input type="text" className="form-control" id="email" placeholder="Email"                             style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
+                     value={emailOrg} onChange={(event) =>
+              {
+                setOrgemail(event.target.value);
+              }
+              }/>
+              <input type="text" className="form-control" id="phoneNumber" placeholder="Phone number"                style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
+                     value={number} onChange={(event) =>
+              {
+                setNumber(event.target.value);
+              }
+              }/>
+              <input type="password" className="form-control" id="password" placeholder="Password"                   style={{width:'65%',background:'rgba(233, 233, 233, 0.56)',marginLeft:'17.5%',marginTop:'5%'}}
+                     value={passwordOrg} onChange={(event) =>
+              {
+                setPasswordOrg(event.target.value);
+              }
+              }/>
+              <button className="btn btn-primary rounded-pill" onClick={registrationOrganization} style={{background:'#006BA8', width:'65%', textAlign:'center',fontSize:'20px', fontFamily:'Livvic',fontWeight:'bold',marginBottom:'2%',marginTop:'5%'}}>Sign up</button>
+            </div>
+            <label style={{width:'65%',caretColor:'transparent'}}><input type="checkbox" style={{marginLeft:'0%',marginTop:'5%'}}/>By clicking the "Sign up" button, I accept the terms of the Privacy Policy</label>
+          </div>
+        </div>
+      </div>
   )
 }
 
 function showVolunteerForm() {
-    document.getElementById("volunteer-form").style.display = "block";
-    document.getElementById("organization-form").style.display = "none";
-  }
+  document.getElementById("volunteer-form").style.display = "block";
+  document.getElementById("organization-form").style.display = "none";
+}
 
-  function showOrganizationForm() {
-    document.getElementById("volunteer-form").style.display = "none";
-    document.getElementById("organization-form").style.display = "block";
-  }
+function showOrganizationForm() {
+  document.getElementById("volunteer-form").style.display = "none";
+  document.getElementById("organization-form").style.display = "block";
+}

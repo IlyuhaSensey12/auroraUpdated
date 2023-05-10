@@ -6,9 +6,13 @@ import axios from "axios";
 
 function User(usp) {
   return (
-      <div className="container" style={{background:'#FFFFFF',border:'1px solid #006BA8',width:'50%',marginTop:'5%'}}>
-        <h2 className='text-center'>{usp.firstname} {usp.lastname}:{usp.rating}</h2>
-        <p className='text-center'>{usp.id}</p>
+      <div className="container-row border-bottom" style={{background:'#FFFFFF',width:'50%',marginTop:'5%', display:'flex', alignItems:'center'}}>
+        <img src={require('/Users/elliasmussayev/Desktop/aurora/src/Icon/nophoto.png')} alt="Моя картинка" style={{width: '100px', height: '100px',caretColor:'transparent'}} />
+        <div className='container' style={{marginLeft:'10px'}}>
+          <h2 style={{textAlign:'left',fontFamily:"Livvic",fontSize:'20px',caretColor:'transparent'}}>{usp.firstname},{usp.lastname}</h2>
+          <h3 style={{textAlign:'left',fontSize:'15px',color:'#8B8888',caretColor:'transparent'}}>ID: {usp.userId}</h3>
+          <p  style={{textAlign:'left',fontFamily:"Livvic",fontSize:'20px',caretColor:'transparent'}}>sometextsometext sometext somtetx textsome textv somtetx textsome text somtetx textsome text</p>
+        </div>
       </div>
   );
 }
@@ -17,14 +21,13 @@ function UserList(usp) {
   return (
       <div className='container'>
         {usp.users.map(user => (
-            <User key={user.id} firstname={user.firstname} lastname={user.lastname} rating={user.rating}/>
+            <User userId={user.id} firstname={user.firstname} lastname={user.lastname} rating={user.rating}/>
         ))}
       </div>
   );
 }
 
 export default function Volunteering() {
-
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -95,71 +98,6 @@ export default function Volunteering() {
   </div>
     </div>
     <div className="container border-bottom mb-5 mt-5" style={{marginLeft: '5%', width: '80%'}}><UserList users={users}/></div>
-
-  {/*  <div class="container border-bottom mb-5 mt-5" style={{marginLeft:'5%',width:'80%'}}>*/}
-  {/*  <div class="row">*/}
-  {/*    <div class="row">*/}
-  {/*      <div class="container">*/}
-  {/*        <div class="container">*/}
-  {/*          <div class="d-flex text-black">*/}
-  {/*            <div class="flex-shrink-0">*/}
-  {/*            <img src={require('/Users/elliasmussayev/Desktop/aurora/src/Icon/nophoto.png')} alt="Моя картинка" style={{width: '100px', height: '100px'}}/>*/}
-  {/*            </div>*/}
-  {/*            <div class="container">*/}
-  {/*              <h5 class="mb-1 text-start" style={{marginLeft:'10%'}}>Kurmanov Bairan</h5>*/}
-  {/*              <p class="mb-2 pb-1 text-start" style={{color:'rgba(139, 136, 136, 1)',marginLeft:'10%'}}>Volunteer ID:<a>63446</a></p>*/}
-  {/*              <p class="text-start" style={{marginLeft:'10%'}}>Working person I can eat</p>*/}
-  {/*            </div>*/}
-  {/*          </div>*/}
-  {/*        </div>*/}
-  {/*      </div>*/}
-  {/*    </div>*/}
-  {/*  </div>*/}
-  {/*</div>*/}
-
-  {/*<div class="container border-bottom mb-5 mt-5" style={{marginLeft:'5%',width:'80%'}}>*/}
-  {/*  <div class="row">*/}
-  {/*    <div class="row">*/}
-  {/*      <div class="container">*/}
-  {/*        <div class="container">*/}
-  {/*          <div class="d-flex text-black">*/}
-  {/*            <div class="flex-shrink-0">*/}
-  {/*            <img src={require('/Users/elliasmussayev/Desktop/aurora/src/Icon/nophoto.png')} alt="Моя картинка" style={{width: '100px', height: '100px'}}/>*/}
-  {/*            </div>*/}
-  {/*            <div class="container">*/}
-  {/*              <h5 class="mb-1 text-start" style={{marginLeft:'10%'}}>Kaiipbek Tauzhan</h5>*/}
-  {/*              <p class="mb-2 pb-1 text-start" style={{color:'rgba(139, 136, 136, 1)',marginLeft:'10%'}}>Volunteer ID:<a>63447</a></p>*/}
-  {/*              <p class="text-start" style={{marginLeft:'10%'}}>I read books, except for science fiction, I like to watch films, I have a penchant for acting, a model.</p>*/}
-  {/*            </div>*/}
-  {/*          </div>*/}
-  {/*        </div>*/}
-  {/*      </div>*/}
-  {/*    </div>*/}
-  {/*  </div>*/}
-  {/*</div>*/}
-
-  {/*<div class="container border-bottom mb-5 mt-5" style={{marginLeft:'5%',width:'80%'}}>*/}
-  {/*  <div class="row">*/}
-  {/*    <div class="row">*/}
-  {/*      <div class="container">*/}
-  {/*        <div class="container">*/}
-  {/*          <div class="d-flex text-black">*/}
-  {/*            <div class="flex-shrink-0">*/}
-  {/*            <img src={require('/Users/elliasmussayev/Desktop/aurora/src/Icon/nophoto.png')} alt="Моя картинка" style={{width: '100px', height: '100px'}}/>*/}
-  {/*            </div>*/}
-  {/*            <div class="container">*/}
-  {/*              <h5 class="mb-1 text-start" style={{marginLeft:'10%'}}>Naran Airat</h5>*/}
-  {/*              <p class="mb-2 pb-1 text-start" style={{color:'rgba(139, 136, 136, 1)',marginLeft:'10%'}}>Volunteer ID:<a>63448</a></p>*/}
-  {/*              <p class="text-start" style={{marginLeft:'10%'}}>I am 15 years old, a 10th grade student at the "Bilim-innovation" lyceum-boarding school. Responsible, participated in the organization of concerts, performed on stage, host on stage.</p>*/}
-  {/*            </div>*/}
-  {/*          </div>*/}
-  {/*        </div>*/}
-  {/*      </div>*/}
-  {/*    </div>*/}
-  {/*  </div>*/}
-  {/*</div>*/}
-
-  
 
   </div>
 </div>

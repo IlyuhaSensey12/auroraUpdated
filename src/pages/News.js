@@ -4,24 +4,26 @@ import Navbar_menu from '../layout/Navbar_menu'
 import Footer from '../layout/Footer'
 import { useState } from 'react'
 import axios from "axios";
-
+import {Link} from 'react-router-dom'
 
 function Post(props) {
     return (
-        <div className="container-row" style={{background:'#FFFFFF',border:'1px solid #006BA8',flexBasis: '33.33%', marginBottom: '20px', padding: '20px'}}>
-            <h2 className='text-center'>{props.title}</h2>
-            <p className='text-center'>{props.content}</p>
-            <p>{props.timeAndPlace},{props.rating},{props.countPeople}</p>
+        <div className="container-row" style={{ background: '#FFFFFF', border: '1px solid #006BA8', width: '30%' }}>
+            <h2 className="text-center">{props.title}</h2>
+            <p className="text-center">{props.content}</p>
+            <p>{props.timeAndPlace}, {props.rating}, {props.countPeople}</p>
+            <Link to={`posts/${props.id}`}>
+                <button>Join</button>
+            </Link>
         </div>
     );
 }
-
 function PostList(props) {
     return (
         <div className='container' style={{display: 'flex', flexWrap: 'wrap'}}>
             {props.posts.map(post => (
-                <Post key={post.id} title={post.title} content={post.description} countPeople = {post.count} timeAndPlace ={post.timeAndPlace}
-                      rating = {post.ratingOfVolunteer} />
+                <Post id={post.id} title={post.title} content={post.description} countPeople = {post.count} timeAndPlace ={post.timeAndPlace}
+                      rating = {post.ratingOfVolunteer} postID={post.id} />
             ))}
         </div>
     );

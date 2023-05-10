@@ -3,6 +3,8 @@ import Navbar from '../layout/Navbar'
 import Navbar_menu from '../layout/Navbar_menu'
 import Footer from '../layout/Footer'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 export default function Profile() {
   const token = localStorage.getItem('token');
@@ -36,7 +38,7 @@ export default function Profile() {
       <div>
         <Navbar/>
         <Navbar_menu/>
-        <div className="container mb-5 mt-5">
+        <div className="container mb-5 mt-5" style={{caretColor: 'transparent'}}>
           <div className="row">
             <div className="col-md-6">
 
@@ -69,83 +71,56 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="container border-top mt-5"></div>
-                <h4 className="text-start"
-                    style={{fontWeight: 'bold', marginTop: '40px', marginLeft: '5%', fontFamily: 'Livvic'}}>My
-                  profile</h4>
-                <h4 className="text-start"
-                    style={{fontWeight: 'bold', marginTop: '40px', marginLeft: '5%', fontFamily: 'Livvic'}}>My
-                  project</h4>
-                <h4 className="text-start"
-                    style={{fontWeight: 'bold', marginTop: '40px', marginLeft: '5%', fontFamily: 'Livvic'}}>Setting</h4>
+                <table style={{width: '50%', marginTop: '5%'}}>
+                  <tr>
+                    <td className="text-start" style={{paddingBottom: '50px', paddingLeft: "15%"}}>
+                      <Link to='/profile' class="text-start" style={{
+                        fontWeight: 'bold',
+                        fontFamily: 'Livvic',
+                        textDecoration: 'none',
+                        color: '#000',
+                        fontSize: '20px'
+                      }}>
+                        My profile
+                      </Link>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="text-start" style={{paddingBottom: '50px', paddingLeft: "15%"}}>
+                      <Link to='/myproject' class="text-start" style={{
+                        fontWeight: 'bold',
+                        fontFamily: 'Livvic',
+                        textDecoration: 'none',
+                        color: '#000',
+                        fontSize: '20px'
+                      }}>
+                        My project
+                      </Link>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="text-start" style={{paddingLeft: "15%"}}>
+                      <Link to='/setting' class="text-start" style={{
+                        fontWeight: 'bold',
+                        fontFamily: 'Livvic',
+                        textDecoration: 'none',
+                        color: '#000',
+                        fontSize: '20px'
+                      }}>
+                        Setting
+                      </Link>
+                    </td>
+                  </tr>
+                </table>
+
               </div>
             </div>
             <div className="col-md-6">
-
-              <div className="settings-menu">
-                <h3 className='text-start' style={{fontWeight: 'bold', fontFamily: 'Livvic'}}>Personal Information</h3>
-                <div className="form-group d-flex align-items-center" style={{marginTop: '8%'}}>
-                  <label htmlFor="dayOfBirth" className="mr-2" style={{fontWeight: 'bold', fontFamily: 'Livvic'}}>Day Of
-                    Birth:</label>
-                  <div className="d-flex">
-                    <input type="number" className="form-control mr-2" id="dayOfBirth" placeholder="Day"
-                           style={{width: '100px', marginLeft: '20%', background: '#D9D9D9'}}/>
-                    <input type="number" className="form-control mr-2" id="monthOfBirth" placeholder="Month"
-                           style={{width: '150px', marginLeft: '17%', background: '#D9D9D9'}}/>
-                    <input type="number" className="form-control" id="yearOfBirth" placeholder="Year"
-                           style={{width: '100px', marginLeft: '18%', background: '#D9D9D9'}}/>
-                  </div>
-                </div>
-                <div className="form-group d-flex align-items-center" style={{marginTop: '8%'}}>
-                  <label htmlFor="gender" className="mr-2"
-                         style={{fontWeight: 'bold', fontFamily: 'Livvic'}}>Gender:</label>
-                  <div className="form-check mr-2" style={{marginLeft: '17%'}}>
-                    <input type="radio" className="form-check-input" id="female" name="gender"/>
-                    <label className="form-check-label" htmlFor="female"
-                           style={{fontWeight: 'bold', fontFamily: 'Livvic'}}>Female</label>
-                  </div>
-                  <div className="form-check" style={{marginLeft: '17%'}}>
-                    <input type="radio" className="form-check-input" id="male" name="gender"/>
-                    <label className="form-check-label" htmlFor="male"
-                           style={{fontWeight: 'bold', fontFamily: 'Livvic'}}>Male</label>
-                  </div>
-                </div>
-                <div className="container border-top mt-5"></div>
-                <div className="form-group d-flex align-items-center" style={{marginTop: '8%'}}>
-                  <label htmlFor="region" className="mr-2"
-                         style={{fontWeight: 'bold', fontFamily: 'Livvic'}}>Region:</label>
-                  <select className="form-control mr-2" id="region"
-                          style={{width: '600px', marginLeft: '17.5%', background: '#D9D9D9'}}>
-                    <option value="Almaty">Almaty</option>
-                    <option value="Astana">Astana</option>
-                    <option value="Shymkent">Shymkent</option>
-                    {/* Добавьте остальные варианты регионов здесь */}
-                  </select>
-                </div>
-                <div className="form-group d-flex align-items-center" style={{marginTop: '8%'}}>
-                  <label htmlFor="direction" className="mr-2"
-                         style={{fontWeight: 'bold', fontFamily: 'Livvic'}}>Direction:</label>
-                  <select className="form-control mr-2" id="direction"
-                          style={{width: '600px', marginLeft: '15%', background: '#D9D9D9'}}>
-                    <option value="Option1">Option 1</option>
-                    <option value="Option2">Option 2</option>
-                    <option value="Option3">Option 3</option>
-                    {/* Добавьте остальные варианты направлений здесь */}
-                  </select>
-                </div>
-                <div className="form-group d-flex align-items-center" style={{marginTop: '8%'}}>
-                  <label htmlFor="experience" className="mr-2"
-                         style={{fontWeight: 'bold', fontFamily: 'Livvic'}}>Experience:</label>
-                  <input type="number" className="form-control" id="experience" placeholder="Years of Experience"
-                         style={{width: '600px', marginLeft: '13%', background: '#D9D9D9'}}/>
-                </div>
-                <div className="container border-top mt-5"></div>
-                <div className="container" style={{marginTop: '5%', marginLeft: '10%'}}>
-                  <button className="btn btn-light" style={{marginLeft: '50%'}}>Cancel</button>
-                  <button className="btn"
-                          style={{background: '#006BA8', fontFamily: 'Livvic', color: '#FFF', marginLeft: '10%'}}>Save
-                  </button>
-                </div>
-              </div>
+              <h1 style={{textAlign: 'left', fontFamily: 'Manrope', fontWeight: 'bold'}}>Information</h1>
+              <h3 style={{textAlign: 'left', fontFamily: 'Manrope', color: '#8B8888', fontWeight: 'bold'}}>About
+                you</h3>
+              <p style={{textAlign: 'left'}}>sometext som text text some textssometext som text text some texts sometext
+                som text text some texts sometext som text text some texts</p>
             </div>
           </div>
         </div>

@@ -1,9 +1,46 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Navbar from '../layout/Navbar'
 import Navbar_menu from '../layout/Navbar_menu'
 import Footer from '../layout/Footer'
+import axios from "axios";
 
+function Org(usp) {
+  return (
+      <div className="container-row border-bottom" style={{background:'#FFFFFF',width:'50%',marginTop:'5%', display:'flex', alignItems:'center'}}>
+        <img src={require('/Users/elliasmussayev/Desktop/aurora/src/Icon/nophoto.png')} alt="Моя картинка" style={{width: '100px', height: '100px',caretColor:'transparent'}} />
+        <div className='container' style={{marginLeft:'10px'}}>
+          <h2 style={{textAlign:'left',fontFamily:"Livvic",fontSize:'20px',caretColor:'transparent'}}>{usp.orgName}</h2>
+          <h3 style={{textAlign:'left',fontSize:'15px',color:'#8B8888',caretColor:'transparent'}}>ID: {usp.orgId}</h3>
+          <p  style={{textAlign:'left',fontFamily:"Livvic",fontSize:'20px',caretColor:'transparent'}}>sometextsometext sometext somtetx textsome textv somtetx textsome text somtetx textsome text</p>
+        </div>
+      </div>
+  );
+}
+
+function OrgList(usp) {
+  return (
+      <div className='container'>
+        {usp.orgs.map(org => (
+            <Org orgId={org.id} orgName={org.organizationName} />
+        ))}
+      </div>
+  );
+}
 export default function Organization() {
+
+  const [orgs, setOrgs] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8081/api/v1/showAllOrgs')
+        .then(response => {
+          console.log(response.data);
+          setOrgs(response.data);
+        })
+        .catch(error => {
+          console.error('Error fetching posts data:', error);
+        });
+  }, []);
+
   return (
     <div>
     <Navbar/>
@@ -62,66 +99,8 @@ export default function Organization() {
   </div>
     </div>
 
-    <div class="container border-bottom mb-5 mt-5" style={{marginLeft:'5%',width:'80%'}}>
-    <div class="row">
-      <div class="row">
-        <div class="container">
-          <div class="container">
-            <div class="d-flex text-black">
-              <div class="flex-shrink-0">
-              <img src={require('/Users/elliasmussayev/Desktop/aurora/src/Icon/nophoto.png')} alt="Моя картинка" style={{width: '100px', height: '100px'}}/>
-              </div>
-              <div class="container">
-                <h5 class="mb-1 text-start" style={{marginLeft:'10%',fontFamily:'Livvic'}}>Communal State Institution "Youth Resource Center "Astana zhastary" Akimat of Astana</h5>
-                <p class="mb-2 pb-1 text-start" style={{color:'rgba(139, 136, 136, 1)',marginLeft:'10%',fontFamily:'Livvic'}}>Organization ID:<a>34</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <div className="container border-bottom mb-5 mt-5" style={{marginLeft: '5%', width: '80%'}}><OrgList orgs={orgs}/></div>
 
-  <div class="container border-bottom mb-5 mt-5" style={{marginLeft:'5%',width:'80%'}}>
-    <div class="row">
-      <div class="row">
-        <div class="container">
-          <div class="container">
-            <div class="d-flex text-black">
-              <div class="flex-shrink-0">
-              <img src={require('/Users/elliasmussayev/Desktop/aurora/src/Icon/nophoto.png')} alt="Моя картинка" style={{width: '100px', height: '100px'}}/>
-              </div>
-              <div class="container">
-                <h5 class="mb-1 text-start" style={{marginLeft:'10%',fontFamily:'Livvic'}}>Wings of Freedom PF</h5>
-                <p class="mb-2 pb-1 text-start" style={{color:'rgba(139, 136, 136, 1)',marginLeft:'10%',fontFamily:'Livvic'}}>Organization ID:<a>63447</a></p>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container border-bottom mb-5 mt-5" style={{marginLeft:'5%',width:'80%'}}>
-    <div class="row">
-      <div class="row">
-        <div class="container">
-          <div class="container">
-            <div class="d-flex text-black">
-              <div class="flex-shrink-0">
-              <img src={require('/Users/elliasmussayev/Desktop/aurora/src/Icon/nophoto.png')} alt="Моя картинка" style={{width: '100px', height: '100px'}}/>
-              </div>
-              <div class="container">
-                <h5 class="mb-1 text-start" style={{marginLeft:'10%',fontFamily:'Livvic'}}>VC Akmola College of Humanities</h5>
-                <p class="mb-2 pb-1 text-start" style={{color:'rgba(139, 136, 136, 1)',marginLeft:'10%',fontFamily:'Livvic'}}>Organization ID:<a>63448</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   
 

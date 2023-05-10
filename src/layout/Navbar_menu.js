@@ -10,7 +10,7 @@ export default function() {
   <div class="collapse navbar-collapse justify-content-left" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item mx-0" style={{paddingLeft:'10%',fontSize:'20px',textTransform:'uppercase',fontFamily:'Livvic'}}>
-        <a class="nav-link" style={{color:'#000'}} href="/main">Home</a>
+        <a class="nav-link" style={{color:'#000'}} href="/">Home</a>
       </li>
       <li class="nav-item mx-0" style={{paddingLeft:'30%',fontSize:'20px',textTransform:'uppercase',fontFamily:'Livvic'}}>
         <a class="nav-link" style={{color:'#000'}} href="/news">News</a>

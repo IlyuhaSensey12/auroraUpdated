@@ -10,26 +10,38 @@ import Signin from './pages/Signin';
 import Volunteering from './pages/Volunteering';
 import Registration from "./pages/Registration";
 import Organization from './pages/Organization';
+import OrganizationProfile from './pages/OrganizationProfile';
+// import BgColorContext from './pages/BgColorContext';
+import { useState } from 'react';
+import Project from './pages/Project';
+import Setting from './pages/Setting';
+import PostDetails from "./pages/PostDetails";
 
 function App() {
+  const [bgColor, setBgColor] = useState('#ffffff');
   return (
-
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route exact path="/main" element={<Main/>}/>
-          <Route path="/news" element={<News/>} />
-          <Route path="/profile" element={<Profile/>}/>
-          <Route path="/about" element={<About/>}/>
-          <Route path="/contacts" element={<Contacts/>}/>
-          <Route path="/*" element={<DefaultLayout />} />
-          <Route path="/signin" element={<Signin/>}/>
-          <Route path="/volunteering" element={<Volunteering/>}/>
-          <Route path="/registration" element={<Registration/>}/>
-          <Route path="/organizations" element={<Organization/>}/>
-        </Routes>
-      </div>
-    </Router>
+      <Router>
+        {/*<BgColorContext.Provider value={{ bgColor, setBgColor }}>*/}
+          <div className="App">
+            <Routes>
+              <Route path='/organizationProfile' element={<OrganizationProfile/>}/>
+              <Route path='/setting' element={<Setting/>}/>
+              <Route path='/myProject' element={<Project/>}/>
+              <Route exact path="/" element={<Main/>}/>
+              <Route path="/news" element={<News/>} />
+              <Route path="/registration" element={<Registration/>} />
+              <Route path="/profile" element={<Profile/>}/>
+              <Route path="/about" element={<About/>}/>
+              <Route path="/contacts" element={<Contacts/>}/>
+              <Route path="/*" element={<DefaultLayout />} />
+              <Route path="/signIn" element={<Signin/>}/>
+              <Route path="/volunteering" element={<Volunteering/>}/>
+              <Route path="/organization" element={<Organization/>}/>
+              <Route path="/posts/:postId" element={<PostDetails/>}/>
+            </Routes>
+          </div>
+        {/*</BgColorContext.Provider>*/}
+      </Router>
 
   );
 }
